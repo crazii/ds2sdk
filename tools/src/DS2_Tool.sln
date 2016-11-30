@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "makeplug", "makeplug\makeplug.vcxproj", "{CC0152DF-2896-4304-9BEF-1B0E256D6D79}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "decryptplug", "decryptplug\decryptplug.vcxproj", "{C78B2B2D-F2E8-49C4-8807-12EED06B9A3D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC0152DF-2896-4304-9BEF-1B0E256D6D79}.Debug|Win32.ActiveCfg = Debug|Win32
+		{CC0152DF-2896-4304-9BEF-1B0E256D6D79}.Debug|Win32.Build.0 = Debug|Win32
+		{CC0152DF-2896-4304-9BEF-1B0E256D6D79}.Release|Win32.ActiveCfg = Release|Win32
+		{CC0152DF-2896-4304-9BEF-1B0E256D6D79}.Release|Win32.Build.0 = Release|Win32
+		{C78B2B2D-F2E8-49C4-8807-12EED06B9A3D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C78B2B2D-F2E8-49C4-8807-12EED06B9A3D}.Debug|Win32.Build.0 = Debug|Win32
+		{C78B2B2D-F2E8-49C4-8807-12EED06B9A3D}.Release|Win32.ActiveCfg = Release|Win32
+		{C78B2B2D-F2E8-49C4-8807-12EED06B9A3D}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
