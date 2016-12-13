@@ -1,5 +1,9 @@
 //memory.c
 
+#define USE_DL_MALLOC 1
+
+#ifndef USE_DL_MALLOC
+
 #include<stdio.h>
 
 #define MEM_U8 unsigned char 
@@ -132,6 +136,11 @@ void* Drv_alloc(MEM_ULONG nbytes)
 	if(i != 0) setalign(i,0);
 
 	return ((void*)i);
+}
+
+void* Drv_memalign(MEM_ULONG align, MEM_ULONG size)
+{
+	return Drv_alloc(size);
 }
 
 #if 0
@@ -284,4 +293,52 @@ void printMemory()
 }
 #endif
 
+#else
+#define HAVE_MMAP 0
+#define HAVE_MORECORE 0
+#define ONLY_MSPACES 1
+#define DEFAULT_GRANULARITY ((size_t)64U * (size_t)1024U)
+#define ABORT_ON_ASSERT_FAILURE 0
+#define ABORT assert(false)
+#define USE_LOCKS 0
+#define USE_SPIN_LOCKS 0
+#define MALLOC_ALIGNMENT 8
+#include "malloc.c.h"
 
+static mspace _mspace;
+
+void heapInit(unsigned int start, unsigned int end)
+{
+	start = (start + 3) & (~3);
+	end = end & (~3);
+
+	_mspace = create_mspace_with_base((void*)start, end - start, 0);
+}
+
+void* Drv_alloc(unsigned int nbytes)
+{
+	return mspace_malloc(_mspace, nbytes);
+}
+
+void* Drv_memalign(unsigned int align, unsigned int nbytes)
+{
+	return mspace_memalign(_mspace, align, nbytes);
+}
+
+void Drv_deAlloc(void* address)
+{
+	mspace_free(_mspace, address);
+}
+
+void* Drv_realloc(void* address, unsigned int nbytes)
+{
+	return mspace_realloc(_mspace, address, nbytes);
+}
+
+void* Drv_calloc(unsigned int nmem, unsigned int size)
+{
+	return mspace_calloc(_mspace, nmem, size);
+}
+
+
+#endif

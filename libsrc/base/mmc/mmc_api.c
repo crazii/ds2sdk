@@ -12,6 +12,8 @@
 *   Description:
 *******************************************************************************/
 
+extern int printf(const char *format, ...);
+
 /* the information structure of MMC/SD Card */
 mmc_info mmcinfo;
 extern int sd2_0;
