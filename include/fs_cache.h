@@ -40,9 +40,11 @@
 #define _CACHE_H
 
 #include "fs_common.h"
-#include "disc_io/disc_io.h"
 
 #define CACHE_PAGE_SIZE BYTES_PER_READ
+
+struct IO_INTERFACE_STRUCT ;
+typedef struct IO_INTERFACE_STRUCT IO_INTERFACE ;
 
 typedef struct {
 	u32 sector;

@@ -130,6 +130,13 @@ extern DIR_ENTRY* fat_readdir_ex(DIR_STATE_STRUCT *dirp, struct stat *statbuf);
 //the extended version of readdir_ex
 #define readdir_ex	fat_readdir_ex
 
+#ifdef MAX_PATH
+#undef MAX_PATH
+#endif
+#ifdef MAX_FILE
+#undef MAX_FILE
+#endif
+
 #define MAX_PATH 512
 #define MAX_FILE 512
 

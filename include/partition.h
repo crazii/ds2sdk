@@ -34,8 +34,6 @@
 #define _PARTITION_H
 
 #include "fs_common.h"
-
-#include "disc_io/disc.h"
 #include "fs_cache.h"
 
 // Device name

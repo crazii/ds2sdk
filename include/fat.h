@@ -59,6 +59,7 @@ extern "C" {
 //typedef enum {PI_DEFAULT, PI_SLOT_1, PI_SLOT_2, PI_CUSTOM} PARTITION_INTERFACE;
 
 struct IO_INTERFACE_STRUCT ;
+typedef struct IO_INTERFACE_STRUCT IO_INTERFACE ;
 
 /*
 Initialise any inserted block-devices.
