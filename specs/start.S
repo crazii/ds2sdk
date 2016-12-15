@@ -68,13 +68,13 @@ _init_cache_loop:
 	// setup stack and GP, jump to C code
 	//----------------------------------------------------
 	la	gp, _gp
-	la	sp, _freemem+0x100000	//stack size = 0x100000
+	la	sp, _freemem+0x10000	//stack size = 0x10000
 
 	la t0, ds2_init
 	jalr	t0
 	nop
 
-	la a0, _freemem+0x100400		//Free memory start address
+	la a0, _freemem+0x10400		//Free memory start address
 	la a1, 0x82000000-0x400		//Free memory end address
 	la t0, heapInit			//Initializing heap for malloc
 	jalr t0
