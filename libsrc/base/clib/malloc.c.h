@@ -4030,6 +4030,10 @@ static void add_segment(mstate m, char* tbase, size_t tsize, flag_t mmapped) {
 
 /* Get memory from system using MORECORE or MMAP */
 static void* sys_alloc(mstate m, size_t nb) {
+#ifdef NO_SYS_ALLOC
+	return NULL;
+#endif
+
 	char* tbase = CMFAIL;
 	size_t tsize = 0;
 	flag_t mmap_flag = 0;

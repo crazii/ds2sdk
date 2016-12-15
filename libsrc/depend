@@ -41,22 +41,22 @@ disc.o: fs/disc_io/disc.c fs/disc_io/disc.h fs/disc_io/../fs_common.h \
 io_ds2_mmcf.o: fs/disc_io/io_ds2_mmcf.c fs/disc_io/io_ds2_mmcf.h \
   fs/disc_io/disc_io.h fs/disc_io/../fs_common.h ../include/ds2_mmc_api.h
 key.o: key/key.c ../include/ds2_timer.h ../include/ds2io.h
-adler32.o: zlib/adler32.c zlib/zlib.h zlib/zconf.h
 compress.o: zlib/compress.c zlib/zlib.h zlib/zconf.h
-crc32.o: zlib/crc32.c zlib/zutil.h zlib/zlib.h zlib/zconf.h zlib/crc32.h
-deflate.o: zlib/deflate.c zlib/deflate.h zlib/zutil.h zlib/zlib.h \
-  zlib/zconf.h
-gzio.o: zlib/gzio.c zlib/zutil.h zlib/zlib.h zlib/zconf.h
-infback.o: zlib/infback.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
-  zlib/inftrees.h zlib/inflate.h zlib/inffast.h zlib/inffixed.h
-inffast.o: zlib/inffast.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
-  zlib/inftrees.h zlib/inflate.h zlib/inffast.h
-inflate.o: zlib/inflate.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
-  zlib/inftrees.h zlib/inflate.h zlib/inffast.h zlib/inffixed.h
 inftrees.o: zlib/inftrees.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
   zlib/inftrees.h
+crc32.o: zlib/crc32.c zlib/zutil.h zlib/zlib.h zlib/zconf.h zlib/crc32.h
 trees.o: zlib/trees.c zlib/deflate.h zlib/zutil.h zlib/zlib.h \
   zlib/zconf.h zlib/trees.h
-uncompr.o: zlib/uncompr.c zlib/zlib.h zlib/zconf.h
+infback.o: zlib/infback.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
+  zlib/inftrees.h zlib/inflate.h zlib/inffast.h zlib/inffixed.h
+inflate.o: zlib/inflate.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
+  zlib/inftrees.h zlib/inflate.h zlib/inffast.h zlib/inffixed.h
+adler32.o: zlib/adler32.c zlib/zlib.h zlib/zconf.h
+inffast.o: zlib/inffast.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
+  zlib/inftrees.h zlib/inflate.h zlib/inffast.h
 zutil.o: zlib/zutil.c zlib/zutil.h zlib/zlib.h zlib/zconf.h \
   ../include/ds2_malloc.h
+uncompr.o: zlib/uncompr.c zlib/zlib.h zlib/zconf.h
+gzio.o: zlib/gzio.c zlib/zutil.h zlib/zlib.h zlib/zconf.h
+deflate.o: zlib/deflate.c zlib/deflate.h zlib/zutil.h zlib/zlib.h \
+  zlib/zconf.h

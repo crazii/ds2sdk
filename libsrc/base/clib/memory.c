@@ -299,10 +299,11 @@ void printMemory()
 #define ONLY_MSPACES 1
 #define DEFAULT_GRANULARITY ((size_t)64U * (size_t)1024U)
 #define ABORT_ON_ASSERT_FAILURE 0
-#define ABORT assert(false)
+#define ABORT 
 #define USE_LOCKS 0
 #define USE_SPIN_LOCKS 0
 #define MALLOC_ALIGNMENT 8
+#define NO_SYS_ALLOC 1
 #include "malloc.c.h"
 
 static mspace _mspace;

@@ -1,6 +1,6 @@
 cache.o: cache.c
 clock.o: clock.c include/bsp.h include/jz4740.h include/types.h \
-  include/sysdefs.h include/cacheops.h
+  include/sysdefs.h include/cacheops.h nds/ds2io.h
 dma.o: dma.c include/jz4740.h include/bsp.h include/types.h \
   include/sysdefs.h include/cacheops.h
 excpt.o: excpt.c include/mipsregs.h include/jz4740.h include/bsp.h \
@@ -17,7 +17,7 @@ uart.o: uart.c include/bsp.h include/jz4740.h include/types.h \
   include/sysdefs.h include/cacheops.h
 version.o: version.c
 libc.o: clib/libc.c include/sysdefs.h
-memory.o: clib/memory.c
+memory.o: clib/memory.c clib/malloc.c.h
 mmc.o: mmc/mmc.c mmc/mmc_config.h mmc/mmc_protocol.h mmc/mmc_api.h \
   mmc/mmc_core.h mmc/mmc_api.c mmc/mmc_protocol.c mmc/mmc_core.c \
   mmc/mmc_hardware.c include/jz4740.h include/bsp.h include/types.h \
