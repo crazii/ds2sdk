@@ -12,6 +12,7 @@
 
 typedef unsigned int size_t;
 typedef unsigned int mode_t;
+extern bool _FAT_Init(void);
 
 typedef struct {
   const char* mode;					/* mode string */

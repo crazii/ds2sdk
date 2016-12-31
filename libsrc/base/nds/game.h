@@ -158,7 +158,7 @@ u32 c0_addr;
 
 struct buf_st 
 {
-    u32 isused;
+    volatile u32 isused;
     u32 offset;
     u32 len;
     u32 use_len;

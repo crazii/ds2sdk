@@ -1,12 +1,12 @@
 
 # CROSS :=#
-CROSS := /opt/mipsel-4.1.2-nopic/bin/
+CROSS := /opt/dstwo-toolchain/bin/
 
 CC = $(CROSS)mipsel-linux-gcc
-AR = $(CROSS)mipsel-linux-ar rcsv
+AR = $(CROSS)mipsel-linux-gcc-ar rcsv
 LD	= $(CROSS)mipsel-linux-ld
 OBJCOPY	= $(CROSS)mipsel-linux-objcopy
-NM	= $(CROSS)mipsel-linux-nm
+NM	= $(CROSS)mipsel-linux-gcc-nm
 OBJDUMP	= $(CROSS)mipsel-linux-objdump
 
 TOPDIR = .
@@ -27,7 +27,7 @@ EXTLIBS := ../lib/libds2a.a
 
 INC := -I../include -I$(EXAMPLE_DIR) -I$(FS_DIR) -I$(CONSOLE_DIR) -I$(KEY_DIR)
 
-CFLAGS := -mips32 -O3 -mno-abicalls -fno-pic -fno-builtin \
+CFLAGS := -mips32 -O3 -flto -mno-abicalls -fno-pic -fno-builtin \
 	   -fno-exceptions -ffunction-sections -mlong-calls\
 	   -fomit-frame-pointer -msoft-float -G 4
 
@@ -53,7 +53,7 @@ all: $(APP)
 	../tools/makeplug example.bin demoplug.plg
 
 $(APP):	depend $(SOBJS) $(OBJS) $(STARTO) $(LINKS) $(EXTLIBS)
-	$(CC) -nostdlib -static -T $(LINKS) -o $@ $(STARTO) $(SOBJS) $(OBJS) $(EXTLIBS) $(LIBS)
+	$(CC) -flto -nostdlib -static -T $(LINKS) -o $@ $(STARTO) $(SOBJS) $(OBJS) $(EXTLIBS) $(LIBS)
 
 $(EXTLIBS): 
 	make -C ../source/

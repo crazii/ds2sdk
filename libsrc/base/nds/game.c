@@ -27,8 +27,9 @@
 #define enable_initfpga 1
 
 #include "game.h"
-#include "mipsregs.h"
-#include "memory.h"
+#include <mipsregs.h>
+#include <memory.h>
+#include "../clib/memory.h"
 
 //MODULE_AUTHOR("game");
 //MODULE_LICENSE("Dual BSD/GPL");

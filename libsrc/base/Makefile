@@ -1,8 +1,8 @@
 # This makefile to make jz4740 baselib
 
-CROSS = /opt/mipsel-4.1.2-nopic/bin/
+CROSS = /opt/dstwo-toolchain/bin/
 CC = $(CROSS)mipsel-linux-gcc
-AR = $(CROSS)mipsel-linux-ar rcsv
+AR = $(CROSS)mipsel-linux-gcc-ar rcsv
 
 
 CLIB_DIR = clib
@@ -27,9 +27,10 @@ OBJS := cache.o	\
 
 SOBJS := $(CLIB_DIR)/libc_s.o
 
-CFLAGS	:= -mips32 -O3 -mno-abicalls -fno-pic -fno-builtin \
-	   -fno-exceptions -ffunction-sections -mlong-calls\
-	   -fomit-frame-pointer -msoft-float -G 4
+CFLAGS	:= -mips32 -O3 -flto -ffat-lto-objects -mno-abicalls -fno-pic -fno-builtin \
+	   -mlong-calls -mno-shared -fno-common\
+	   -fomit-frame-pointer -msoft-float -G 0
+	   
 
 CFLAGS += -I./include -I./mmc -I./nds -I.
 

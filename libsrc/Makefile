@@ -1,9 +1,9 @@
 
 # CROSS :=#
-CROSS := /opt/mipsel-4.1.2-nopic/bin/
-
+CROSS = /opt/dstwo-toolchain/bin/
 CC = $(CROSS)mipsel-linux-gcc
-AR = $(CROSS)mipsel-linux-ar rcsv
+AR = $(CROSS)mipsel-linux-gcc-ar rcsv
+
 
 TOPDIR = .
 CONSOLE_DIR = $(TOPDIR)/console
@@ -19,9 +19,9 @@ INCLUDES := -I../include
 
 INC := $(INCLUDES)
 
-CFLAGS := -mips32 -O3 -mno-abicalls -fno-pic -fno-builtin \
-	   -fno-exceptions -ffunction-sections -mlong-calls\
-	   -fomit-frame-pointer -msoft-float -G 4
+CFLAGS := -mips32 -O3 -flto -ffat-lto-objects -mno-abicalls -fno-pic -fno-builtin \
+	   -mlong-calls -mno-shared -fno-common\
+	   -fomit-frame-pointer -msoft-float -G 0
 
 include $(CONSOLE_DIR)/console.mk
 include $(FS_DIR)/fs.mk

@@ -7,6 +7,7 @@
 	.extern ds2_init
 	.extern heapInit
 	.extern ds2_main
+	.extern __ctype_init
 
 	.ent	_start
 	.global	_start
@@ -69,7 +70,12 @@ _init_cache_loop:
 	//----------------------------------------------------
 	la	gp, _gp
 	la	sp, _freemem+0x10000	//stack size = 0x10000
-
+	
+	//hack for glibc 2.18
+	la t0, __ctype_init
+	jalr t0
+	nop
+	
 	la t0, ds2_init
 	jalr	t0
 	nop

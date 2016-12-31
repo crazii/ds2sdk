@@ -67,7 +67,7 @@ do {						\
 	"ori %0, 2\n\t"				\
 	"mtc0 %0, $16, 7\n\t"			\
 	"nop\n\t"				\
-	".set mips2\n\t"			\
+	".set mips32\n\t"			\
 	: "=&r" (tmp));				\
 } while (0)
 

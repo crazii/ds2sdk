@@ -26,6 +26,7 @@ SECTIONS
     _ecode = ABSOLUTE(.) ;	/* End of code				*/
 
     *(.rodata*)
+	*(..data.rel.ro*)
 
     . = ALIGN(8);
     _etext = ABSOLUTE(.);	/* End of code and read-only data	*/
@@ -86,6 +87,8 @@ SECTIONS
   /DISCARD/ :
   {
     *(.reginfo)
+	*(.MIPS.abiflags)
+	*(.rel.dyn)
   }
 
   PROVIDE(etext = _etext);

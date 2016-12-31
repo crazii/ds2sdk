@@ -155,9 +155,9 @@ jz_cpu_suspend:
 	lw	t2, 0(t2)
 
 	/* enter hibernate mode */
-	.set	mips3	
+	.set	mips32	
 	wait
-	.set	mips2
+	.set	mips32
 
 2:	j	2b		/* loop waiting for suspended */
 	nop

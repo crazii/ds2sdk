@@ -7,6 +7,7 @@
 #include "fatdir.h"
 
 typedef unsigned int mode_t;
+typedef unsigned int size_t;
 
 extern int fat_init(void);
 

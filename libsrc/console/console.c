@@ -2,8 +2,9 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 #include "ds2io.h"
-#include "memory.h"
+#include "../base/clib/memory.h"
 #include "font_dot.h"
 
 #define STRING_SIZE		2048

@@ -341,5 +341,35 @@ void* Drv_calloc(unsigned int nmem, unsigned int size)
 	return mspace_calloc(_mspace, nmem, size);
 }
 
+void* Drv_valloc(unsigned int size)
+{
+	return mspace_valloc(size);
+}
+
+void* Drv_pvalloc(unsigned int size)
+{
+	return mspace_pvalloc(size);
+}
+
+
+
+# define strong_alias(name, aliasname) _strong_alias(name, aliasname)
+# define _strong_alias(name, aliasname) \
+  extern __typeof (name) aliasname __attribute__ ((alias (#name)));
+  
+# define weak_alias(name, aliasname) _weak_alias (name, aliasname)
+# define _weak_alias(name, aliasname) \
+  extern __typeof (name) aliasname __attribute__ ((weak, alias (#name)));
+
+weak_alias (Drv_calloc, __calloc) weak_alias (Drv_calloc, calloc)
+strong_alias (Drv_deAlloc, __cfree) weak_alias (Drv_deAlloc, cfree)
+strong_alias (Drv_deAlloc, __free) strong_alias (Drv_deAlloc, free)
+strong_alias (Drv_alloc, __malloc) strong_alias (Drv_alloc, malloc)
+strong_alias (Drv_memalign, __memalign)
+weak_alias (Drv_memalign, memalign)
+
+weak_alias (Drv_realloc, __realloc) weak_alias (Drv_realloc, realloc)
+weak_alias (Drv_valloc, __valloc) weak_alias (Drv_valloc, valloc)
+weak_alias (Drv_pvalloc, __pvalloc) weak_alias (Drv_pvalloc, pvalloc)
 
 #endif

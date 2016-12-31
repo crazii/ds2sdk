@@ -29,7 +29,7 @@
 #define	ERANGE		34	/* Result not representable		*/
 
 /* for errno.h */
-int errno;
+//int errno;
 
 #define _UPC	0x1
 #define _LWR	0x2
@@ -41,7 +41,7 @@ int errno;
 #define _BLK	0x80
 
 /* for ctype.h */
-char _ctype[] = {
+static char _ctype[] = {
 	/* 0 */	0,
 	/* 1 */ _CTR,
 	/* 2 */ _CTR,
@@ -674,5 +674,10 @@ int ext_putc_unlocked(int c, register FILE *stream)
 
 }
 
+
+int fputs ( const char * str, FILE * stream )
+{
+	return 0;
+}
 
 

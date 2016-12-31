@@ -152,7 +152,7 @@ struct nds_iqe_st
 
 struct buf_st 
 {
-    u32 isused;
+    volatile u32 isused;
     u32 offset;
     u32 len;
     u32 use_len;
@@ -245,7 +245,7 @@ struct audio_set
 #define KEY_MASK (0x1f)
 
 extern u32 get_buf_form_bufnum(int num);
-extern int check_video_up_buf(void);
+extern volatile int check_video_up_buf(void);
 extern int get_video_up_buf(void);
 extern int check_video_down_buf(void);
 extern int get_video_down_buf(void);

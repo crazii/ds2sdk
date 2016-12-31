@@ -1,5 +1,5 @@
 //test.c
-
+#include <string.h>
 #include "jz4740.h"
 #include "test.h"
 
@@ -16,7 +16,7 @@ static void _initInput(void);
 
 unsigned short __brightness_state;
 
-struct main_buf *pmain_buf;
+extern struct main_buf *pmain_buf;
 int MP4_fd;
 int MP4_buf;
 
@@ -25,9 +25,9 @@ u32 get_buf_from_bufnum(int num)
     return (pmain_buf->buf_st_list[num].offset + MP4_buf);
 }
 
-int check_video_up_buf(void)
+volatile int check_video_up_buf(void)
 {
-    int i = 0;
+    volatile int i = 0;
 
 	if (pmain_buf->buf_st_list[buf_video_up_0].isused != 0) i += 1;
     if (pmain_buf->buf_st_list[buf_video_up_1].isused != 0) i += 1;
